@@ -1,0 +1,101 @@
+:root {
+  --TITLE-ACTIVE: #1e2222;
+  --BODY: #5c5c5c;
+  --LABEL: #888888;
+  --PLACEHOLDER: #bbbbbb;
+  --LINE: #d7d7d7;
+  --BACKGROUND: #f5f5f5;
+  --OFF-WHITE: #fcfcfc;
+  --PRIMARY-1: #045d8b;
+  --PRIMARY-2: #b1c3cd;
+  --PRIMARY-3: #00365d;
+  --ERROR: #f45452;
+}
+html {
+  background-color: var(--OFF-WHITE);
+}
+body {
+  overflow: auto;
+  min-width: 850px;
+  font-family: "Noto Sans KR";
+  font-style: normal;
+  font-weight: normal;
+}
+body * {
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+}
+header {
+  display: flex;
+  background-color: var(--PRIMARY-1);
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10em 0;
+}
+ul {
+  list-style-type: none;
+}
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.columnCenter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.rowCenter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.margin-1 {
+  margin: 10% 20%;
+}
+.margin-5px {
+  margin: 5px;
+}
+.button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+.big-text {
+  font-size: 32px;
+  line-height: 24px;
+  color: var(--OFF-WHITE);
+}
+.mid-text {
+  font-size: 24px;
+  line-height: 16px;
+  color: var(--OFF-WHITE);
+}
+.small-text {
+  font-size: 16px;
+  line-height: 16px;
+  color: var(--OFF-WHITE);
+}
+.black {
+  color: var(--PRIMARY-3);
+}
+.white {
+  color: var(--OFF-WHITE);
+}

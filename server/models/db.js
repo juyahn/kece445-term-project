@@ -26,6 +26,14 @@ class database {
     connection.release();
     return rows;
   }
+  async checkUserLogin(data) {
+    const connection = await this.pool.getConnection(async (con) => con);
+    const [rows] = await connection.query(
+      `SELECT * FROM users where id='${data.id}' and password='${data.password}'`
+    );
+    connection.release();
+    return rows.length > 0;
+  }
   async getRecent10ProductList() {
     const connection = await this.pool.getConnection(async (con) => con);
     const [rows] = await connection.query(

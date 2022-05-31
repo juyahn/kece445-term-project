@@ -1,0 +1,29 @@
+doctype html
+html
+  head
+    title 중고거래플랫폼
+    link(rel='stylesheet', href='/css/style.css')
+    link(rel='stylesheet', href='/css/input.css')
+    link(rel='stylesheet', href='/css/overlap.css')
+    link(href='https://fonts.googleapis.com/css?family=Merriweather&#8217',rel='stylesheet',type='text/css')
+    link(href='https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap',rel='stylesheet',type='text/css')
+  body
+    header
+      button.center.button
+        p.header__logo.mid-text= 'KECE445'
+      span.row 
+        p.big-text= '중고거래'
+      span.row
+        -if(userId){            
+          p.small-text.margin-5px                
+            a(href='/user/logout') 로그아웃
+          p.small-text.margin-5px                
+            a(href='/product/wishes') 찜한내역        
+        -}else{            
+          p.small-text.margin-5px                
+            a(href='/user/signin') 로그인            
+          p.small-text.margin-5px                
+            a(href='/user/signup') 회원가입        
+        -}
+      script(type='text/javascript',src='/javascript/header.js')
+    block content

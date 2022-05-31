@@ -25,4 +25,17 @@ export const userController = {
       );
     }
   },
+  checkUser: async (req, res) => {
+    const isUser = await db.checkUserLogin(req.body);
+    if (!isUser) {
+      res.send(
+        JSON.stringify({ text: "잘못된 로그인 정보입니다.", success: false })
+      );
+    } else {
+      req.session.userId = req.body.id;
+      req.session.save(() => {
+        res.send(JSON.stringify({ text: "로그인되었습니다.", success: true }));
+      });
+    }
+  },
 };

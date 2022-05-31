@@ -1,0 +1,11 @@
+extends ./layout.pug
+block content 
+    section.margin-1
+        p.big-text.black 로그인
+        form.column.signin-form(action='/user/signin',method='POST',autocomplete='off')
+            p.mid-text.black ID 
+            input.inputBar__text.signin-id(name='id',type="text")
+            p.mid-text.black PASSWORD
+            input.inputBar__text.signin-password(name='password',type="password")
+            div.center.white.inputBar__Btn.signin-submit Sign In
+    script(type='text/javascript',src='/javascript/signin.js')
