@@ -17,14 +17,15 @@ block content
                 p.small-text.primary.margin-5px 가격
             span.box-seller
                 p.small-text.primary.margin-5px 판매자
-        each val in recentProductList
+        each val in productList
             span.row 
                 span.box-ID
                     p.small-text.black.margin-5px= val.id
                 span.box-title
                     p.small-text.black.margin-5px= val.name
                 div.box-explanation(data-productId= val.id)
-                    p.small-text.black.margin-5px= val.explanation
+                    p.small-text.black.margin-5px 
+                        a(href='/product/detail?id='+val.id)= val.explanation
                 span.box-price
                     p.small-text.black.margin-5px= val.price
                 span.box-seller
