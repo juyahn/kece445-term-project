@@ -30,3 +30,14 @@
   background: var(--PRIMARY-1);
   cursor: pointer;
 }
+.inputBar__Btn-small {
+  background: var(--PRIMARY-1);
+  margin: 1px 5px;
+  border: 1px solid var(--PLACEHOLDER);
+  border-radius: 8px;
+  width: 40px;
+  height: 36px;
+}
+.product-keyword {
+  margin-left: auto;
+}

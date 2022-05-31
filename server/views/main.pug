@@ -1,0 +1,38 @@
+extends ./layout.pug
+block content 
+    section.margin-3
+        span.row.search-box 
+            input.inputBar__text.product-keyword(name='keyword',type="text",placeholder="검색어를 입력하세요.",autocomplete="off")
+            button.center.button.inputBar__Btn-small.product-search
+                p.mini-text 검색
+    section.margin-2 
+        span.row 
+            span.box-ID
+                p.small-text.primary.margin-5px ID 
+            span.box-title
+                p.small-text.primary.margin-5px 제목
+            span.box-explanation-title
+                p.small-text.primary.margin-5px 설명
+            span.box-price
+                p.small-text.primary.margin-5px 가격
+            span.box-seller
+                p.small-text.primary.margin-5px 판매자
+        each val in recentProductList
+            span.row 
+                span.box-ID
+                    p.small-text.black.margin-5px= val.id
+                span.box-title
+                    p.small-text.black.margin-5px= val.name
+                div.box-explanation(data-productId= val.id)
+                    p.small-text.black.margin-5px= val.explanation
+                span.box-price
+                    p.small-text.black.margin-5px= val.price
+                span.box-seller
+                    p.small-text.black.margin-5px= val.USER_id
+        span.center
+            -if(userId){            
+                button.center.button.floating-btn 
+                    p.small-text 
+                        a(href='/product/new') 상품등록
+            -}
+    script(type='text/javascript',src='/javascript/main.js')

@@ -34,10 +34,10 @@ class database {
     connection.release();
     return rows.length > 0;
   }
-  async getRecent10ProductList() {
+  async getRecent30ProductList() {
     const connection = await this.pool.getConnection(async (con) => con);
     const [rows] = await connection.query(
-      "SELECT * FROM products WHERE is_sold IS FALSE ORDER BY id DESC LIMIT 10"
+      "SELECT * FROM products WHERE is_sold IS FALSE ORDER BY id DESC LIMIT 30"
     );
     connection.release();
     return rows;

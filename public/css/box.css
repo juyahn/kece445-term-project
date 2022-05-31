@@ -1,0 +1,28 @@
+.box-ID {
+  width: 5%;
+  height: 32px;
+}
+.box-title {
+  width: 20%;
+  height: 32px;
+}
+.box-explanation {
+  width: 50%;
+  height: 32px;
+}
+.box-explanation:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.box-explanation-title {
+  width: 50%;
+  height: 32px;
+}
+.box-price {
+  width: 10%;
+  height: 32px;
+}
+.box-seller {
+  width: 15%;
+  height: 32px;
+}
