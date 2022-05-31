@@ -43,6 +43,9 @@ a:active {
   text-decoration: none;
   color: inherit;
 }
+a:hover {
+  text-decoration: underline;
+}
 .column {
   display: flex;
   flex-direction: column;
@@ -70,6 +73,12 @@ a:active {
 .margin-1 {
   margin: 10% 20%;
 }
+.margin-2 {
+  margin: 20px 5%;
+}
+.margin-3 {
+  margin: 5px 5%;
+}
 .margin-5px {
   margin: 5px;
 }
@@ -77,6 +86,16 @@ a:active {
   cursor: pointer;
   background-color: transparent;
   border: none;
+}
+.floating-btn {
+  position: fixed;
+  background-color: var(--PRIMARY-1);
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1), 0px 4px 20px rgba(0, 0, 0, 0.1);
+  width: 72px;
+  height: 64px;
+  bottom: 7%;
+  right: 7%;
 }
 .big-text {
   font-size: 32px;
@@ -93,9 +112,17 @@ a:active {
   line-height: 16px;
   color: var(--OFF-WHITE);
 }
+.mini-text {
+  font-size: 12px;
+  line-height: 12px;
+  color: var(--OFF-WHITE);
+}
 .black {
-  color: var(--PRIMARY-3);
+  color: var(--TITLE-ACTIVE);
 }
 .white {
   color: var(--OFF-WHITE);
+}
+.primary {
+  color: var(--PRIMARY-3);
 }

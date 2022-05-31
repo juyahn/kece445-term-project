@@ -1,7 +1,7 @@
 extends ./layout.pug
 block content 
     section.margin-1
-        p.big-text.black 회원가입
+        p.big-text.primary 회원가입
         form.column.signup-form(action='/user/signup',method='POST',autocomplete='off')
             p.mid-text.black ID 
             input.inputBar__text.signup-id(name='id',type="text")
