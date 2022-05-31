@@ -16,4 +16,11 @@ export const productController = {
       productList: productListByKeyword,
     });
   },
+  getUserWishList: async (req, res) => {
+    const wishList = await db.getUserWishList(req.session.userId);
+    res.render("main.pug", {
+      userId: req.session.userId,
+      productList: wishList,
+    });
+  },
 };
