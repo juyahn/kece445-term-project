@@ -18,6 +18,14 @@ class database {
     connection.release();
     return rows;
   }
+  async getUser(userId) {
+    const connection = await this.pool.getConnection(async (con) => con);
+    const [rows] = await connection.query(
+      `SELECT * FROM users where id='${userId}'`
+    );
+    connection.release();
+    return rows;
+  }
   async getRecent10ProductList() {
     const connection = await this.pool.getConnection(async (con) => con);
     const [rows] = await connection.query(
@@ -53,7 +61,7 @@ class database {
   async addUsers(data) {
     const connection = await this.pool.getConnection(async (con) => con);
     const query = `
-    INSERT INTO users(id, password))
+    INSERT INTO users(id, password)
     VALUES ('${data.id}','${data.password}')
     `;
     await connection.query(query);

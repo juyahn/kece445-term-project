@@ -1,0 +1,11 @@
+extends ./layout.pug
+block content 
+    section.margin-1
+        p.big-text.black 회원가입
+        form.column.signup-form(action='/user/signup',method='POST',autocomplete='off')
+            p.mid-text.black ID 
+            input.inputBar__text.signup-id(name='id',type="text")
+            p.mid-text.black PASSWORD
+            input.inputBar__text.signup-password(name='password',type="password")
+            div.center.white.inputBar__Btn.signup-submit SUBMIT
+    script(type='text/javascript',src='/javascript/signup.js')
