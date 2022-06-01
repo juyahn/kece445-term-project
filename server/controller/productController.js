@@ -33,6 +33,13 @@ export const productController = {
     await db.deleteWishLists(req.body);
     res.send(JSON.stringify({ text: "찜에서 삭제되었습니다.", success: true }));
   },
+  getUserProduct: async (req, res) => {
+    const userProductList = await db.getUserProduct(req.session.userId);
+    res.render("main.pug", {
+      userId: req.session.userId,
+      productList: userProductList,
+    });
+  },
   getProductDetail: async (req, res) => {
     const { id } = req.query;
     const productDetail = await db.getProduct(id);

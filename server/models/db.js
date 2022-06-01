@@ -66,6 +66,14 @@ class database {
     connection.release();
     return rows;
   }
+  async getUserProduct(userId) {
+    const connection = await this.pool.getConnection(async (con) => con);
+    const [rows] = await connection.query(
+      `SELECT * FROM products WHERE USER_id='${userId}'`
+    );
+    connection.release();
+    return rows;
+  }
   async getProductCommentList(productId) {
     const connection = await this.pool.getConnection(async (con) => con);
     const [rows] = await connection.query(

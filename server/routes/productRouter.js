@@ -7,6 +7,7 @@ productRouter.get("/product/search", productController.getProductsByKeyword);
 productRouter.get("/product/wishes", productController.getUserWishList);
 productRouter.post("/product/wishes", productController.addUserWishList);
 productRouter.delete("/product/wishes", productController.deleteUserWishList);
+productRouter.get("/product/my", productController.getUserProduct);
 productRouter.get("/product/detail", productController.getProductDetail);
 productRouter.delete("/product/detail", productController.deleteProduct);
 productRouter.post("/product/comment", productController.addProductComment);
