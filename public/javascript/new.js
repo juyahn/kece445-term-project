@@ -38,7 +38,10 @@ function checkForm() {
   }
 }
 function submit() {
-  if (newProductForm().submitBtn.classList.contains("inputBar__Btn-active")) {
+  if (
+    newProductForm().submitBtn.classList.contains("inputBar__Btn-active") &&
+    userId != null
+  ) {
     let data = {};
     newProductForm()
       .form.querySelectorAll("input")
