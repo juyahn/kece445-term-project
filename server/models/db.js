@@ -53,7 +53,7 @@ class database {
   async getUserWishList(userId) {
     const connection = await this.pool.getConnection(async (con) => con);
     const [rows] = await connection.query(
-      `SELECT * FROM products INNER JOIN wish_lists ON id=PRODUCT_id WHERE wish_lists.USER_id='${userId}'`
+      `SELECT id, name, explanation, price, p.USER_id FROM products AS p INNER JOIN wish_lists AS w ON id=PRODUCT_id WHERE w.USER_id='${userId}'`
     );
     connection.release();
     return rows;
