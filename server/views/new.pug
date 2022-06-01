@@ -1,0 +1,15 @@
+extends ./layout.pug
+block content 
+    section.margin-1
+        p.big-text.primary 상품 등록
+        form.column.new-product-form(action='/product/new',method='POST',autocomplete='off')
+            p.mid-text.black 이름
+            input.inputBar__text.new-product-name(name='name',type="text")
+            p.mid-text.black 설명
+            input.inputBar__text.new-product-explanation(name='explanation',type="text")
+            p.mid-text.black 가격
+            input.inputBar__text.new-product-price(name='price',type="text")
+            div.center.white.inputBar__Btn.new-product-submit 등록
+    script.
+        userId = '#{JSON.stringify(userId)}'
+    script(type='text/javascript',src='/javascript/new.js')

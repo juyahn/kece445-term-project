@@ -37,4 +37,15 @@ export const productController = {
     await db.addComments(req.body);
     res.send(JSON.stringify({ text: "댓글 등록", success: true }));
   },
+  newProduct: async (req, res) => {
+    res.render("new.pug", {
+      userId: req.session.userId,
+    });
+  },
+  addNewProduct: async (req, res) => {
+    await db.addProducts(req.body);
+    res.send(
+      JSON.stringify({ text: "상품등록이 완료되었습니다.", success: true })
+    );
+  },
 };

@@ -88,7 +88,7 @@ class database {
     const connection = await this.pool.getConnection(async (con) => con);
     const query = `
     INSERT INTO products(name,explanation,price,USER_id)
-    VALUES ('${data.name}','${data.explanation}',${data.price},'${data.userId}')
+    VALUES ('${data.name}','${data.explanation}',${data.price},${data.userId})
     `;
     await connection.query(query);
     connection.release();
