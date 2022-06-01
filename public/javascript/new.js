@@ -58,7 +58,7 @@ function submit() {
   }
 }
 function init() {
-  userId = userId.replace(/(&quot\;)/g, '"');
+  userId = userId.replace(/(&quot\;)/g, "");
   newProductForm().submitBtn.addEventListener("click", submit);
   newProductForm().inputName.addEventListener("keyup", checkForm);
   newProductForm().inputExplanation.addEventListener("keyup", checkForm);

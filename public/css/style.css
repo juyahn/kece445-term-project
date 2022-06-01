@@ -138,3 +138,6 @@ a:hover {
 .primary {
   color: var(--PRIMARY-3);
 }
+.red {
+  color: var(--ERROR);
+}

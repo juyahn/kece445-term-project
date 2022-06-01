@@ -8,6 +8,32 @@ block content
                 span.divider-vertical
                 p.small-text.primary.margin-5px 판매자
                 p.small-text.black.margin-5px= productDetail[0].USER_id
+                span.divider-vertical
+                -if(productDetail[0].is_sold=='1'){
+                    p.small-text.primary.margin-5px 판매완료
+                -}else{
+                    p.small-text.primary.margin-5px 판매중
+                -}
+                span.divider-vertical
+                div.text-box.product-status(data-selling=(productDetail[0].is_sold=='1')?'1':'0', data-wish=(userWishProduct)?'1':'0', data-owns=productDetail[0].USER_id)
+                    -if(productDetail[0].USER_id==userId){
+                        -if (productDetail[0].is_sold=='0'){
+                            p.small-text.red.margin-5px 판매완료처리하기
+                        -}else {
+                            p.small-text.red.margin-5px 판매재개하기
+                        -}
+                    -}else if (userId!=null){
+                        -if (!userWishProduct){                            
+                            p.small-text.red.margin-5px 찜하기
+                        -}else {
+                            p.small-text.red.margin-5px 찜취소
+                        -}
+                    -}
+                div.text-box.delete-product.row
+                    -if(productDetail[0].USER_id==userId){
+                        span.divider-vertical
+                        p.small-text.red.margin-5px 삭제하기
+                    -}
             p.big-text.primary.margin-5px.margin-top-50px 설명
             p.big-text.black.margin-5px= productDetail[0].explanation
             p.mid-text.primary.margin-5px.margin-top-50px 가격

@@ -26,3 +26,7 @@
   width: 15%;
   height: 32px;
 }
+.text-box:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}

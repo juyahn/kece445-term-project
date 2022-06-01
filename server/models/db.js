@@ -74,6 +74,14 @@ class database {
     connection.release();
     return rows;
   }
+  async checkUserWishProduct(data) {
+    const connection = await this.pool.getConnection(async (con) => con);
+    const [rows] = await connection.query(
+      `SELECT * FROM wish_lists WHERE PRODUCT_id='${data.productId}' AND USER_id='${data.userId}'`
+    );
+    connection.release();
+    return rows.length > 0;
+  }
   async addUsers(data) {
     const connection = await this.pool.getConnection(async (con) => con);
     const query = `
@@ -88,7 +96,7 @@ class database {
     const connection = await this.pool.getConnection(async (con) => con);
     const query = `
     INSERT INTO products(name,explanation,price,USER_id)
-    VALUES ('${data.name}','${data.explanation}',${data.price},${data.userId})
+    VALUES ('${data.name}','${data.explanation}',${data.price},'${data.userId}')
     `;
     await connection.query(query);
     connection.release();
@@ -98,7 +106,7 @@ class database {
     const connection = await this.pool.getConnection(async (con) => con);
     const query = `
     INSERT INTO comments(USER_id, PRODUCT_id, comment)
-    VALUES (${data.userId},${data.productId},'${data.comment}')
+    VALUES ('${data.userId}',${data.productId},'${data.comment}')
     `;
     await connection.query(query);
     connection.release();
@@ -107,7 +115,7 @@ class database {
   async addWishLists(data) {
     const connection = await this.pool.getConnection(async (con) => con);
     const query = `
-    INSERT INTO wish_lists(USER_id, PRODUCT_id))
+    INSERT IGNORE INTO wish_lists(USER_id, PRODUCT_id)
     VALUES ('${data.userId}','${data.productId}')
     `;
     await connection.query(query);
@@ -159,7 +167,7 @@ class database {
     const connection = await this.pool.getConnection(async (con) => con);
     const query = `
         UPDATE products
-        SET id_sold=${data.isSold}
+        SET is_sold = ${data.isSold == "1" ? "0" : "1"}
         WHERE id = ${data.productId}
         `;
     await connection.query(query);
