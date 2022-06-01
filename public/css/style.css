@@ -82,6 +82,12 @@ a:hover {
 .margin-5px {
   margin: 5px;
 }
+.margin-top-20px {
+  margin-top: 20px;
+}
+.margin-top-50px {
+  margin-top: 50px;
+}
 .button {
   cursor: pointer;
   background-color: transparent;
@@ -96,6 +102,12 @@ a:hover {
   height: 64px;
   bottom: 7%;
   right: 7%;
+}
+.divider-vertical {
+  margin: 0 5px;
+  width: 1px;
+  border-left: 1px solid var(--LINE);
+  height: auto;
 }
 .big-text {
   font-size: 32px;

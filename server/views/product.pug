@@ -1,0 +1,31 @@
+extends ./layout.pug
+block content 
+    section.margin-2 
+        span.column 
+            span.row.margin-top-20px
+                p.mid-text.primary.margin-5px 제목
+                p.mid-text.black.margin-5px= productDetail[0].name
+                span.divider-vertical
+                p.small-text.primary.margin-5px 판매자
+                p.small-text.black.margin-5px= productDetail[0].USER_id
+            p.big-text.primary.margin-5px.margin-top-50px 설명
+            p.big-text.black.margin-5px= productDetail[0].explanation
+            p.mid-text.primary.margin-5px.margin-top-50px 가격
+            span.row 
+                p.mid-text.black.margin-5px= productDetail[0].price 
+                p.mid-text.primary.margin-5px 원
+            p.mid-text.primary.margin-5px.margin-top-50px 댓글
+            each val in productComment
+                span.row.margin-top-20px
+                    p.small-text.primary.margin-5px 작성자
+                    p.small-text.black.margin-5px= val.USER_id
+                    span.divider-vertical
+                    p.mid-text.black.margin-5px= val.comment
+            span.row.margin-top-50px 
+                input.inputBar__text.comment-input(name='comment',type="text",placeholder="댓글 쓰기",autocomplete="off")
+                button.center.button.inputBar__Btn-small.comment-submit
+                    p.mini-text 작성
+    script.
+        userId = '#{JSON.stringify(userId)}'
+        productId = '#{JSON.stringify(productDetail[0].id)}'
+    script(type='text/javascript',src='/javascript/product.js')

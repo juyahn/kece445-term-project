@@ -1,12 +1,3 @@
-const sendQueryData = (method, url, data) => {
-  const xmlHttp = new XMLHttpRequest();
-  xmlHttp.open(method, url, false);
-  xmlHttp.setRequestHeader("Content-type", "application/json");
-  xmlHttp.send(JSON.stringify(data));
-  if (xmlHttp.status === 200) {
-    return xmlHttp.responseText;
-  }
-};
 function main() {
   return {
     productSearchInput: document.querySelector(".product-keyword"),

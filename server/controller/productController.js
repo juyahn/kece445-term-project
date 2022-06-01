@@ -23,4 +23,18 @@ export const productController = {
       productList: wishList,
     });
   },
+  getProductDetail: async (req, res) => {
+    const { id } = req.query;
+    const productDetail = await db.getProduct(id);
+    const productComment = await db.getProductCommentList(id);
+    res.render("product.pug", {
+      userId: req.session.userId,
+      productDetail,
+      productComment,
+    });
+  },
+  addProductComment: async (req, res) => {
+    await db.addComments(req.body);
+    res.send(JSON.stringify({ text: "댓글 등록", success: true }));
+  },
 };

@@ -58,6 +58,14 @@ class database {
     connection.release();
     return rows;
   }
+  async getProduct(productId) {
+    const connection = await this.pool.getConnection(async (con) => con);
+    const [rows] = await connection.query(
+      `SELECT * FROM products WHERE id='${productId}'`
+    );
+    connection.release();
+    return rows;
+  }
   async getProductCommentList(productId) {
     const connection = await this.pool.getConnection(async (con) => con);
     const [rows] = await connection.query(
@@ -89,8 +97,8 @@ class database {
   async addComments(data) {
     const connection = await this.pool.getConnection(async (con) => con);
     const query = `
-    INSERT INTO users(id, password))
-    VALUES ('${data.id}','${data.password}')
+    INSERT INTO comments(USER_id, PRODUCT_id, comment)
+    VALUES (${data.userId},${data.productId},'${data.comment}')
     `;
     await connection.query(query);
     connection.release();
